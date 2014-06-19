@@ -68,9 +68,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'database_name',
+		'login' => 'i18n-cakephp-usr',
+		'password' => 'i18n-cakephp-bd-pass',
+		'database' => 'i18n-cakephp-bd',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
