@@ -13,17 +13,17 @@ Cómo poner a funcionar este ejemplo
 
 Para el correcto funcionamiento de este ejemplo, seguir los siguiente pasos:
 
-1. Al **clonar** por favor utiliza la opción `--recursive` de Git
+- Al **clonar** por favor utiliza la opción `--recursive` de Git
 
 `git clone --recursive https://github.com/alex-arriaga/i18n-cakephp.git`
 
 Esto descargará el repositorio principal, pero además descargará un submódulo: **DebugKit**
 
-2. Importa la base de datos que viene en el archivo
+- Importa la base de datos que viene en el archivo
 
 `database/i18n-cakephp-bd.sql`
 
-3. Configura el archivo **app/Config/database.php**, por defecto usa estos datos:
+- Configura el archivo **app/Config/database.php**, por defecto usa estos datos:
 <pre>
 <code>
     public $default = array(
@@ -39,8 +39,8 @@ Esto descargará el repositorio principal, pero además descargará un submódul
 </code>
 </pre>
 
-4. Accede a una URL de demo por ejemplo: **http://localhost/projects/i18n-cakephp/users**
-5. Si usas la URL **http://localhost/projects/i18n-cakephp/users/add** notarás que los meses del año están traducidos a español.
+- Accede a una URL de demo por ejemplo: **http://localhost/projects/i18n-cakephp/users**
+- Si usas la URL **http://localhost/projects/i18n-cakephp/users/add** notarás que los meses del año están traducidos a español.
 
 Algunos enlaces de interés
 --------------------------
