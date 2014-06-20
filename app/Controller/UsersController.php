@@ -48,6 +48,15 @@ class UsersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
+
+			// Antes de guardar se calcula la edad
+			$day 	= $this->request->data['User']['date_of_birth']['day'];
+			$month 	= $this->request->data['User']['date_of_birth']['month'];
+			$year 	= $this->request->data['User']['date_of_birth']['year'];
+
+			// Se calcula la edad y se deja en los datos que se intentarán guardar
+			$this->request->data['User']['age'] = $this->__getAgeOptimized($day, $month, $year);
+
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -57,6 +66,26 @@ class UsersController extends AppController {
 		}
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
+	}
+
+	// Un método privado por convención lleva "__"
+	// Leer más acerca de las convenciones en: http://book.cakephp.org/2.0/en/contributing/cakephp-coding-conventions.html
+	// Este método calcula la edad
+	// IMPORTANTE: este código funcionará para PHP >= 5.3.0
+	private function __getAgeOptimized($day, $month, $year) {
+		$from = new DateTime($year . '-' . $month . '-' . $day );
+		$to   = new DateTime('today');
+		return $from->diff($to)->y;
+    }
+
+    // IMPORTANTE: este código funcionará incluso con PHP < 5.3.0
+    function __getAge($day, $month, $year){
+		$year_diff  = date("Y") - $year;
+		$month_diff = date("m") - $month;
+		$day_diff   = date("d") - $day;
+		if ($day_diff < 0 && $month_diff==0) $year_diff--;
+		if ($day_diff < 0 && $month_diff < 0) $year_diff--;
+		return $year_diff;
 	}
 
 /**
@@ -71,6 +100,15 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+
+			// Antes de guardar se calcula la edad
+			$day 	= $this->request->data['User']['date_of_birth']['day'];
+			$month 	= $this->request->data['User']['date_of_birth']['month'];
+			$year 	= $this->request->data['User']['date_of_birth']['year'];
+
+			// Se calcula la edad y se deja en los datos que se intentarán guardar
+			$this->request->data['User']['age'] = $this->__getAgeOptimized($day, $month, $year);
+
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
