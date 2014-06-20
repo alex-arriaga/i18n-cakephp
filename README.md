@@ -1,13 +1,39 @@
 CakePHP
 =======
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+Para el correcto funcionamiento de este ejemplo, seguir los siguiente pasos:
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+1) Al **clonar** por favor utiliza la opción `--recursive` de Git
 
-Some Handy Links
-----------------
+`git clone --recursive git://github.com/foo/bar.git`
+
+Esto descargará el repositorio principal, pero además descargará un submódulo: **DebugKit**
+
+2) Importa la base de datos que viene en el archivo
+
+database/i18n-cakephp-bd.sql
+
+3) Configura el archivo **app/Config/database.php**, por defecto usa estos datos:
+<pre>
+<code>
+    public $default = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'localhost',
+		'login' => 'i18n-cakephp-usr',
+		'password' => 'i18n-cakephp-bd-pass',
+		'database' => 'i18n-cakephp-bd',
+		'prefix' => '',
+		//'encoding' => 'utf8',
+	);
+</code>
+</pre>
+
+4) Accede a una URL de demo por ejemplo: **http://localhost/projects/i18n-cakephp/users**
+5) Si usas la URL **http://localhost/projects/i18n-cakephp/users/add** notarás que los meses del año están traducidos a español.
+
+Algunos enlaces de interés
+--------------------------
 
 [CakePHP](http://www.cakephp.org) - The rapid development PHP framework
 
@@ -27,17 +53,5 @@ Some Handy Links
 
 [Cake Software Foundation](http://cakefoundation.org) - Promoting development related to CakePHP
 
-Get Support!
-------------
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake
-
-[Google Group](https://groups.google.com/group/cake-php) - Community mailing list and forum
-
-[GitHub Issues](https://github.com/cakephp/cakephp/issues) - Got issues? Please tell us!
-
-[Roadmaps](https://github.com/cakephp/cakephp/wiki#roadmaps) - Want to contribute? Get involved!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
 
 ![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
