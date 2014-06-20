@@ -8,6 +8,8 @@ En este demo encontrarás los siguientes ejemplos:
 - Ejecución de código personalizado antes de guardar. En este caso existe un campo "age" en la tabla "users" que se calcula justo antes de ejectar el `save()`. Se muestra un método `private` que realiza ese cálculo.
 - Ejemplos de archivos **cake.po** para soporte de **i18n** (Internazionalization) en español (app/Locale/spa/LC_MESSAGES/cake.po) y francés (app/Locale/fra/LC_MESSAGES/cake.po): http://book.cakephp.org/2.0/en/core-libraries/internationalization-and-localization.html. Más información sobre *Codes for the Representation of Names of Languages*: http://www.loc.gov/standards/iso639-2/php/code_list.php
 
+Cómo poner a funcionar este ejemplo
+-----------------------------------
 
 Para el correcto funcionamiento de este ejemplo, seguir los siguiente pasos:
 
@@ -19,7 +21,7 @@ Esto descargará el repositorio principal, pero además descargará un submódul
 
 2. Importa la base de datos que viene en el archivo
 
-database/i18n-cakephp-bd.sql
+`database/i18n-cakephp-bd.sql`
 
 3. Configura el archivo **app/Config/database.php**, por defecto usa estos datos:
 <pre>
