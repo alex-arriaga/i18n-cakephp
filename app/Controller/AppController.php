@@ -31,6 +31,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	// Activando DebugKit (modificación por Alex Arriaga)
-	public $components = array('DebugKit.Toolbar');
+	// Activando DebugKit y demás componets y helpers por defecto (modificación por Alex Arriaga)
+	var $helpers = array('Html', 'Form');
+	public $components = array('DebugKit.Toolbar','Session', 'Cookie');
 }

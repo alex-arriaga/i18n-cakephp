@@ -109,3 +109,20 @@ CakeLog::config('error', array(
 
 // Cargando DebugKit (modificación por Alex Arriaga)
 CakePlugin::load('DebugKit');
+
+// Paso 1: Definimos un idioma predeterminado en este caso español
+// El formato de idioma usa: ISO 639-2
+// Leer más sobre eso en:
+// - http://www.loc.gov/standards/iso639-2/php/code_list.php
+// - http://book.cakephp.org/2.0/en/core-libraries/internationalization-and-localization.html
+
+// You can find these files for few popular languages from the official Localized repo.
+// https://github.com/cakephp/localized
+
+$lang = 'spa';
+Configure::write('Config.language', $lang);
+
+// Paso 2: Incluir el archivo LC_TIME que app/Locale/spa
+// Paso 3: Para soportar i18n se debe incluir el archivo "cake.po" en app/Locale/spa/LC_MESSAGES/
+
+

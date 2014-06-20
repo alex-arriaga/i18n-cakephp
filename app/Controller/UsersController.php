@@ -13,7 +13,7 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session');
+	public $components = array('Paginator');
 
 /**
  * index method
@@ -79,12 +79,14 @@ class UsersController extends AppController {
     }
 
     // IMPORTANTE: este código funcionará incluso con PHP < 5.3.0
-    function __getAge($day, $month, $year){
+	private function __getAge($day, $month, $year){
 		$year_diff  = date("Y") - $year;
 		$month_diff = date("m") - $month;
 		$day_diff   = date("d") - $day;
+
 		if ($day_diff < 0 && $month_diff==0) $year_diff--;
 		if ($day_diff < 0 && $month_diff < 0) $year_diff--;
+
 		return $year_diff;
 	}
 
