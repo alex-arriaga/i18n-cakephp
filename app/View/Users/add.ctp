@@ -6,7 +6,7 @@
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('group_id');
-		echo $this->Form->input('age');
+		// echo $this->Form->input('age'); // Este dato es calculado antes de guardar (ver controller)
 		echo $this->Form->input('date_of_birth');
 	?>
 	</fieldset>
