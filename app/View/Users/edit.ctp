@@ -8,7 +8,18 @@
 		echo $this->Form->input('password');
 		echo $this->Form->input('group_id');
 		// echo $this->Form->input('age'); // Este dato es calculado antes de guardar (ver controller)
-		echo $this->Form->input('date_of_birth');
+		$options = array(
+			'label' => 'Fecha de nacimiento', // Etiqueta
+			'dateFormat'    => 'DMY',	// Formato a como lo usamos en español
+			'minYear'       => date('Y') - 100, // Configuramos para que aparezcan desde el año actual hasta 100 años menos
+			'maxYear'       => date('Y'),		// Aparecerá hasta el año actual como máximo
+			'empty'         => array( // Etiquetas para el selects (empty options)
+				'day'       => 'Día',
+				'month'     => 'Mes',
+				'year'      => 'Año'
+			)
+		);
+		echo $this->Form->input('date_of_birth', $options); // Ahora la fecha de nacimiento tiene nuestra configuración
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
